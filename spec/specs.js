@@ -3,10 +3,10 @@ describe('Word', function() {
     var testWord = new Word ("Pencil");
     expect(testWord.wordInput).to.equal("Pencil");
   });
-});
-
-describe('Words', function() {
   it("will return a random word from the array of words.", function() {
-    expect(testWords("Pencil")).to.equal("Pencil");
+    expect(generateWord("Pencil")).to.equal("Pencil");
+  });
+  it("will split the selected random word into an array of separate letters.", function() {
+    expect(splitWord(generateWord)).to.eql(["P","e","n","c","i","l"]);
   });
 });
