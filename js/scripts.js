@@ -1,29 +1,31 @@
-var Word;
+var wordGroup = ["Forest","Mailman","Film"];
 
-function Word(wordInput) {
-  this.wordInput = wordInput;
-  };
+function hangMan(gameWord) {
+  this.gameWord = gameWord;
+}
 
-Word.prototype.pickRandomWord() {
-  var words = ["Pencil","Orange","Porcupine","Mailman"];
-  return words[Math.floor(Math.random() * words.length)];
-  };
+hangMan.prototype.pickWord = function() {
+
+  var pickedWord = wordGroup[Math.floor(Math.random() * wordGroup.length)];
+  console.log(pickedWord);
+  return pickedWord;
+}
+
+hangMan.prototype.splitWord = function() {
+  console.log();
+  var splittedWord = this.splitWord;
+  return splittedWord.split();
+
+
+}
 
 //
-// function generateWord() {
-//   var randomWords = ["Pencil","Pen","Paper"];
-//   var randomWord = randomWords[Math.floor(Math.random() * randomWords.length)];
-//   return randomWord;
+// pickRandomWord = function() {
+//   var words = ["Pencil","Orange","Porcupine","Mailman"];
+//   console.log(words);
+//   return words[Math.floor(Math.random() * words.length)];
 // };
 //
-// function splitWord(generateWord) {
-//   var splitWord = this.generateWord();
-//   console.log(splitWord);
-//   return splitWord.split('');
-//   // console.log(splitWord);
-
-//
-// };
 
 // $(document).ready(function() {
 //
