@@ -5,12 +5,8 @@ describe('Word', function() {
   });
 });
 
-describe('selectWord', function() {
+describe('Words', function() {
   it("will return a random word from the array of words.", function() {
-    var testselectWord = new selectWord ("Pencil");
-    expect(testselectWord.randomWord).to.equal("Pencil");
+    expect(testWords("Pencil")).to.equal("Pencil");
   });
-  it("will separate the letters of the selected random word.", function() {
-  
-  })
 });

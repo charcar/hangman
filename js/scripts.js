@@ -2,9 +2,9 @@ function Word(wordInput) {
   this.wordInput = wordInput;
   };
 
-function selectWord(randomWord) {
+function testWords() {
   var randomWords = ["Pencil","Forest","Skyline","Neptune"];
-  var randomWord = randomWords[Math.floor(Math.random()* randomWords.length)];
+  var randomWord = randomWords[Math.floor(Math.random() * randomWords.length)];
   console.log(randomWords);
   console.log(randomWord);
   return randomWord;
