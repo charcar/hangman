@@ -5,7 +5,7 @@ var wordOutput = function() {
 }
 
 function hangMan(userGuessLetter, wordOutput) {
-  this.counter;
+  this.counter = 0;
   this.guessedLetters = [];
   this.userGuessLetter = userGuessLetter;
   this.wordOutput = wordOutput;
@@ -33,6 +33,9 @@ var guessLetterResult = true;
       guessLetterResult = false;
     };
   };
+
+  
+
   return guessLetterResult;
 };
 
@@ -45,11 +48,7 @@ hangMan.prototype.displayUnderscore = function() {
 
 
 hangMan.prototype.replaceUnderscore = function() {
-
-  console.log(this.puzzleNotShowing);
-
   for (var i = 0; i < this.wordOutput.length; i++) {
-
     if (this.wordOutput[i].indexOf(this.userGuessLetter) > -1) {
       this.puzzleNotShowing[i]=(this.userGuessLetter);
     } else if (this.wordOutput[i].indexOf("_")) {
@@ -57,17 +56,20 @@ hangMan.prototype.replaceUnderscore = function() {
     } else if (this.wordOutput[i].indexOf(this.guessedLetters) > -1) {
       this.puzzleNotShowing[i] = this.puzzleNotShowing[i].val();
     }
-
     else {
       this.puzzleNotShowing[i] = this.puzzleNotShowing[i].val();
     }
   }
-
-  console.log(this.puzzleNotShowing);
   return this.puzzleNotShowing;
 }
 
-
+hangMan.prototype.counter = function() {
+  var wrongCounter = this.counter;
+  if (this.wrongGuess === false); {
+    wrongCounter = wrongCounter + 1;
+  }
+  return wrongCounter;
+}
 
 // $(document).ready(function() {
 //

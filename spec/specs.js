@@ -26,8 +26,12 @@ describe('hangMan', function() {
     expect(testGuess.displayUnderscore()).to.eql(['_', '_', '_', '_', '_', '_']);
   });
   it("will provide an array to store user letter guesses.", function() {
-    var testGuess = new hangMan ("e", "Forest");
+    var testGuess = new hangMan ("F", "Forest");
     expect(testGuess.replaceUnderscore()).to.eql(['F','_','_','_','_','_']);
+  });
+  it("will count the number of wrong guesses in game, to a max of seven", function(){
+    var testGuess = new hangMan ("F", "Forest");
+    expect(testGuess.counter).to.equal(0);
   });
 });
 //
