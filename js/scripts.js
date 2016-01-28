@@ -2,30 +2,41 @@ var wordGroup = ["Forest","Mailman","Film"];
 
 function hangMan(gameWord) {
   this.gameWord = gameWord;
+  this.splitWord = [];
 }
 
-hangMan.prototype.pickWord = function() {
+// hangMan.prototype.pickWord = function() {
+//
+//   var pickedWord = wordGroup[Math.floor(Math.random() * wordGroup.length)];
+//   console.log(pickedWord);
+//   return pickedWord;
+// }
 
+hangMan.prototype.pickSplitWord = function() {
   var pickedWord = wordGroup[Math.floor(Math.random() * wordGroup.length)];
-  console.log(pickedWord);
-  return pickedWord;
+  var splitWord = pickedWord;
+  console.log(splitWord);
+  this.splitWord = splitWord.split('');
+  return splitWord.split('');
 }
 
-hangMan.prototype.splitWord = function() {
-  console.log();
-  var splittedWord = this.splitWord;
-  return splittedWord.split();
+
+function userInput(testInput, pickedWord) {
 
 
-}
 
-//
-// pickRandomWord = function() {
-//   var words = ["Pencil","Orange","Porcupine","Mailman"];
-//   console.log(words);
-//   return words[Math.floor(Math.random() * words.length)];
-// };
-//
+  // take testInput and loop through pickedWord searching for character match
+  for (var i = 0; i < pickedWord.length; i++) {
+    var letterCheck = testInput
+    if (letterCheck === charAt[i]) {
+      
+      alert("correct.");
+    }
+  }
+};
+
+
+
 
 // $(document).ready(function() {
 //
