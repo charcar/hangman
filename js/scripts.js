@@ -6,19 +6,18 @@ var wordOutput = function() {
 
 function hangMan(userGuessLetter, wordOutput) {
   this.counter;
+  this.guessedLetters = [userGuessLetter];
   this.userGuessLetter = userGuessLetter;
   this.wordOutput = wordOutput;
+  this.puzzleNotShowing = [];
+  this.puzzleYesShowing = [];
   this.htmlOutput;
-
 }
 
 hangMan.prototype.correctGuess = function() {
-
 var guessLetterResult = false;
 
   for (var i = 0; i < this.wordOutput.length; i++) {
-    console.log(i);
-
     if (this.wordOutput.indexOf(this.userGuessLetter) > -1) {
       guessLetterResult = true;
       console.log(guessLetterResult);
@@ -28,36 +27,33 @@ var guessLetterResult = false;
 };
 
 hangMan.prototype.wrongGuess = function() {
-
 var guessLetterResult = true;
 
   for (var i = 0; i < this.wordOutput.length; i++) {
-    console.log(i);
-
     if (this.wordOutput.indexOf(this.userGuessLetter) > -1) {
       guessLetterResult = false;
-      console.log(guessLetterResult);
     };
   };
   return guessLetterResult;
 };
 
+hangMan.prototype.displayUnderscore = function() {
+  for (var i = 0; i < this.wordOutput.length; i++) {
+    this.puzzleNotShowing.push('_')
+  }
+  return this.puzzleNotShowing;
+}
 
-
-function userInput(testInput, pickedWord) {
-
-
-
-  // take testInput and loop through pickedWord searching for character match
-  for (var i = 0; i < pickedWord.length; i++) {
-    var letterCheck = testInput
-    if (letterCheck === charAt[i]) {
-
-      alert("correct.");
+hangMan.prototype.replaceUnderscore = function() {
+  for (var i = 0; i < this.wordOutput.length; i++) {
+    if (this.wordOutput.indexOf(this.guessedLetters) > -1) {
+      this.puzzleNotShowing.push(this.userGuessLetter);
+    } else {
+      this.puzzleNotShowing.push('_');
     }
   }
-};
-
+  return this.puzzleNotShowing;
+}
 
 
 

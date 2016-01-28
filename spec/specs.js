@@ -8,6 +8,7 @@ describe('hangMan', function() {
   it("will provide properties to store game values.", function() {
     var testGuess = new hangMan ("a","Forest");
     expect(testGuess.counter).to.equal();
+    expect(testGuess.guessedLetters).to.eql(['a']);
     expect(testGuess.userGuessLetter).to.equal("a");
     expect(testGuess.wordOutput).to.equal("Forest");
     expect(testGuess.htmlOutput).to.equal();
@@ -20,5 +21,20 @@ describe('hangMan', function() {
     var testGuess = new hangMan ("r","Forest");
     expect(testGuess.wrongGuess()).to.equal(false);
   });
-
+  it("will provide an array for underscore display.", function() {
+    var testGuess = new hangMan ("f","Forest");
+    expect(testGuess.displayUnderscore()).to.eql(['_', '_', '_', '_', '_', '_']);
+  });
+  it("will provide an array to store user letter guesses.", function() {
+    var testGuess = new hangMan ("o", "Forest");
+    expect(testGuess.replaceUnderscore()).to.eql(['F','_','_','_','_','_']);
+  });
 });
+//
+// describe('showWordHtml', function() {
+//   it("will provide properties to store values that display arrays.", function() {
+//     var testGuess = new showWordHtml (["_ _ _ _ _ _"],["f o r e s t"]);
+//     expect(testGuess.displayUnderscore).to.eql(["_ _ _ _ _ _"]);
+//     expect(testGuess.displayLetters).to.eql(["f o r e s t"]);
+//   });
+// });
