@@ -6,7 +6,7 @@ var wordOutput = function() {
 
 function hangMan(userGuessLetter, wordOutput) {
   this.counter;
-  this.guessedLetters = [userGuessLetter];
+  this.guessedLetters = [];
   this.userGuessLetter = userGuessLetter;
   this.wordOutput = wordOutput;
   this.puzzleNotShowing = [];
@@ -20,7 +20,6 @@ var guessLetterResult = false;
   for (var i = 0; i < this.wordOutput.length; i++) {
     if (this.wordOutput.indexOf(this.userGuessLetter) > -1) {
       guessLetterResult = true;
-      console.log(guessLetterResult);
     };
   };
   return guessLetterResult;
@@ -44,17 +43,26 @@ hangMan.prototype.displayUnderscore = function() {
   return this.puzzleNotShowing;
 }
 
+
 hangMan.prototype.replaceUnderscore = function() {
+
+  console.log(this.puzzleNotShowing);
 
   for (var i = 0; i < this.wordOutput.length; i++) {
 
     if (this.wordOutput[i].indexOf(this.userGuessLetter) > -1) {
-      this.puzzleNotShowing.push(this.userGuessLetter);
+      this.puzzleNotShowing[i]=(this.userGuessLetter);
+    } else if (this.wordOutput[i].indexOf("_")) {
+      this.puzzleNotShowing[i]=('_');
+    } else if (this.wordOutput[i].indexOf(this.guessedLetters) > -1) {
+      this.puzzleNotShowing[i] = this.puzzleNotShowing[i].val();
     }
+
     else {
-      this.puzzleNotShowing.push('_');
+      this.puzzleNotShowing[i] = this.puzzleNotShowing[i].val();
     }
   }
+
   console.log(this.puzzleNotShowing);
   return this.puzzleNotShowing;
 }
