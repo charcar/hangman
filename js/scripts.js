@@ -1,41 +1,47 @@
 var wordOutput = function() {
   var wordGroup = ["Forest","Mailman","Film"];
   var pickedWord = wordGroup[Math.floor(Math.random() * wordGroup.length)];
-  console.log(pickedWord);
   return pickedWord;
 }
 
-function hangMan(counter,userGuessLetter, wordOutput) {
-  this.counter = counter;
+function hangMan(userGuessLetter, wordOutput) {
+  this.counter;
   this.userGuessLetter = userGuessLetter;
   this.wordOutput = wordOutput;
-  
+  this.htmlOutput;
+
 }
 
 hangMan.prototype.correctGuess = function() {
 
-  for (var i = 0; i < wordOutput.length; i++) {
+var guessLetterResult = false;
 
-    if (wordOutput.indexOf(userGuessLetter) > -1) {
-      return true;
-    }
-  }
-}
+  for (var i = 0; i < this.wordOutput.length; i++) {
+    console.log(i);
 
-// hangMan.prototype.pickWord = function() {
-//
-//   var pickedWord = wordGroup[Math.floor(Math.random() * wordGroup.length)];
-//   console.log(pickedWord);
-//   return pickedWord;
-// }
-//
-// hangMan.prototype.pickSplitWord = function() {
-//   var pickedWord = wordGroup[Math.floor(Math.random() * wordGroup.length)];
-//   var splitWord = pickedWord;
-//   console.log(splitWord);
-//   this.splitWord = splitWord.split('');
-//   return splitWord.split('');
-// }
+    if (this.wordOutput.indexOf(this.userGuessLetter) > -1) {
+      guessLetterResult = true;
+      console.log(guessLetterResult);
+    };
+  };
+  return guessLetterResult;
+};
+
+hangMan.prototype.wrongGuess = function() {
+
+var guessLetterResult = true;
+
+  for (var i = 0; i < this.wordOutput.length; i++) {
+    console.log(i);
+
+    if (this.wordOutput.indexOf(this.userGuessLetter) > -1) {
+      guessLetterResult = false;
+      console.log(guessLetterResult);
+    };
+  };
+  return guessLetterResult;
+};
+
 
 
 function userInput(testInput, pickedWord) {
