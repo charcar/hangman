@@ -26,7 +26,7 @@ describe('hangMan', function() {
     expect(testGuess.displayUnderscore()).to.eql(['_', '_', '_', '_', '_', '_']);
   });
   it("will provide an array to store user letter guesses.", function() {
-    var testGuess = new hangMan ("o", "Forest");
+    var testGuess = new hangMan ("F", "Forest");
     expect(testGuess.replaceUnderscore()).to.eql(['F','_','_','_','_','_']);
   });
 });

@@ -45,13 +45,17 @@ hangMan.prototype.displayUnderscore = function() {
 }
 
 hangMan.prototype.replaceUnderscore = function() {
+
   for (var i = 0; i < this.wordOutput.length; i++) {
-    if (this.wordOutput.indexOf(this.guessedLetters) > -1) {
+
+    if (this.wordOutput[i].indexOf(this.userGuessLetter) > -1) {
       this.puzzleNotShowing.push(this.userGuessLetter);
-    } else {
+    }
+    else {
       this.puzzleNotShowing.push('_');
     }
   }
+  console.log(this.puzzleNotShowing);
   return this.puzzleNotShowing;
 }
 
