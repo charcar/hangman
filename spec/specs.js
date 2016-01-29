@@ -8,19 +8,19 @@ describe('hangMan', function() {
   it("will provide properties to store game values.", function() {
     var testGuess = new hangMan ("a","Forest");
     expect(testGuess.counter).to.equal();
-    expect(testGuess.guessedLetters).to.eql(['a']);
+    expect(testGuess.guessedLetters).to.eql([]);
     expect(testGuess.userGuessLetter).to.equal("a");
     expect(testGuess.wordOutput).to.equal("Forest");
     expect(testGuess.htmlOutput).to.equal();
   });
-  it("will determine if the user guess letter is in the word.", function() {
-    var testGuess = new hangMan ("x","Forest");
-    expect(testGuess.correctGuess()).to.equal(false);
-  });
-  it("will determine if the user guess letter is NOT in the word.", function() {
-    var testGuess = new hangMan ("r","Forest");
-    expect(testGuess.wrongGuess()).to.equal(false);
-  });
+  // it("will determine if the user guess letter is in the word.", function() {
+  //   var testGuess = new hangMan ("x","Forest");
+  //   expect(testGuess.correctGuess()).to.equal(false);
+  // });
+  // it("will determine if the user guess letter is NOT in the word.", function() {
+  //   var testGuess = new hangMan ("r","Forest");
+  //   expect(testGuess.wrongGuess()).to.equal(false);
+  // });
   it("will provide an array for underscore display.", function() {
     var testGuess = new hangMan ("f","Forest");
     expect(testGuess.displayUnderscore()).to.eql(['_', '_', '_', '_', '_', '_']);
@@ -31,7 +31,11 @@ describe('hangMan', function() {
   });
   it("will count the number of wrong guesses in game, to a max of seven", function(){
     var testGuess = new hangMan ("F", "Forest");
-    expect(testGuess.counter).to.equal(0);
+    expect(testGuess.counter()).to.equal(0);
+  });
+  it("will collect the guessed letters into an array.", function() {
+    var testGuess = new hangMan ("F", "Forest");
+    expect(testGuess.inputCollector()).to.eql(["F"]);
   });
 });
 //
